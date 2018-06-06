@@ -20,10 +20,15 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "@auth0/angular-jwt": "^2.0.0",
+    "alertifyjs": "^1.11.1",
     "bootstrap": "^4.1.1",
+    "bootswatch": "^4.1.1",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
+    "ngx-bootstrap": "^2.0.5",
     "rxjs": "^6.0.0",
+    "rxjs-compat": "^6.2.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
