@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active" >Dating App</a>
+  <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active">Dating App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,33 +7,36 @@
 
   <div class="collapse navbar-collapse">
     <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active" >
+      <li class="nav-item" routerLinkActive="active">
         <a [routerLink]="['/members']" class="nav-link" href="#">Matches</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a [routerLink]="['/lists']" class="nav-link" href="#">Lists</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a [routerLink]="['/messages']"   class="nav-link" href="#">Messages</a>
+        <a [routerLink]="['/messages']" class="nav-link" href="#">Messages</a>
       </li>
     </ul>
 
     <div *ngIf="!loggedIn()" class="navbar-nav ml-auto">
-        <form  #loginForm="ngForm" class="form-inline" (ngSubmit)="login()">
-            <input class="form-control mr-sm-2" required name="username" type="text" placeholder="Email" [(ngModel)]="model.username">
-            <input class="form-control mr-sm-2" required name="password" type="password" placeholder="Password" [(ngModel)]="model.password">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [disabled]="!loginForm.valid">Login</button>
-          </form>
+      <form #loginForm="ngForm" class="form-inline" (ngSubmit)="login()">
+        <input class="form-control mr-sm-2" required name="username" type="text" placeholder="Email" [(ngModel)]="model.username">
+        <input class="form-control mr-sm-2" required name="password" type="password" placeholder="Password" [(ngModel)]="model.password">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [disabled]="!loginForm.valid">Login</button>
+      </form>
     </div>
 
 
     <div *ngIf="loggedIn()" class="dropdown mr-5" dropdown>
+      <span>
+        <img src="{{photoUrl}}" alt="">
+      </span>
       <a class="dropdown-toggle text-light" dropdownToggle>
         Welcome {{authService.decodedToken?.unique_name | titlecase}}
       </a>
 
       <ul class="dropdown-menu" *dropdownMenu>
-        <a class="dropdown-item" [routerLink]="['/member/edit']" >
+        <a class="dropdown-item" [routerLink]="['/member/edit']">
           <i class="fa fa-user"></i> Edit Profile</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#" (click)="logout()">
